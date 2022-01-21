@@ -30,7 +30,8 @@ The selected topic for our model is based on the dataset pertaining movie’s to
 - tomatometer top fresh critic ratings <br>
 - tomatometer rotten critic ratings <br>
 <br>
-The goal of this project is to understand what features will help us determine which movies will receive a tomato status of fresh or rotten. We will use tomato status as our target for our model. We hope to construct a model that will accurately predict tomato status for future movies.
+The goal of this project is to understand what features will help us determine which movies will receive a tomato status of fresh or rotten. We will use tomato status as our target for our model. We hope to construct a model that will accurately predict tomato status for future movies. <br>
+
 ## Team Members
 
 - Briana Brown
