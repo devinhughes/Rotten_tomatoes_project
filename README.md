@@ -36,12 +36,18 @@ The goal of this project is to understand what features will help us determine w
 
 - Briana Brown
 - Devin Hughes
-- Henry Nguyen
 - Priscilla Van Dyke
 
 ## Tools and Techniques
 
-
+### Data Cleaning and Analysis
+We plan to primarily use Pandas to clean and analyze the data. For some of the columns, natural language processing will be necessary, so we intend to use NLTK.
+### Database Storage
+Since our data is tabular, we plan to use a PostgreSQL database. In order to integrate with the other pieces of the project we intend to use SQLAlchemy to make the connection.
+### Machine Learning
+Our supervised machine learning model will use scikit-learn to create the classifier and split the data into training and testing sets. We intend to start with a Random Forest algorithm since it can handle outliers, nonlinear data, and large datasets. We hope to avoid overfitting and increase overall model performance with ensemble learning.
+### Dashboard
+We plan to build our dashboard using Flask as well as D3.js to add interactive elements.
 
 ## Challenges
-The dataset shows some challenges that might become present in our project. The dataset will require effiecient preprocessing to be able to use the dataset optimally. We also face the challenge of knowing if we have enough features to accuratuley fit our model to be able to predict our target. This might require an additional dataset to merge with our current dataset. 
+The dataset shows some challenges that might become present in our project. The dataset will require efficient preprocessing to be able to use the dataset optimally. We also face the challenge of knowing if we have enough features to accurately fit our model to be able to predict our target. This might require an additional dataset to merge with our current dataset. 
