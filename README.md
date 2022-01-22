@@ -1,6 +1,7 @@
 # Final Project
 
 ## Outline
+This project will use data from RottenTomato.com and will be using unsupervised machine learning to predict treads of the next top fresh rated movies, as well as the most rotten rated movies.
 ### Dataset
 The datasets used in the project are hosted on the Kaggle database. They can be downloaded at the following link: <br>
 https://www.kaggle.com/stefanoleone992/rotten-tomatoes-movies-and-critic-reviews-dataset?select=rotten_tomatoes_movies.csv
