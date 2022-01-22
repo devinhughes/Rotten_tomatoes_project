@@ -1,7 +1,8 @@
 # Final Project
 
 ## Outline
-This project will use data from RottenTomato.com and will be using unsupervised machine learning to predict treads of the next top fresh rated movies, as well as the most rotten rated movies, based on key inputs factors.
+### Topic: Movies
+Our group selected this topic because the movie industry has been severely impacted by COVID and we are interested in analyzing what makes movies successful or not to help future movie makers. We are going to look at data from the Rotten Tomatoes website to compare movies rated Fresh and Rotten in the hopes of being able to predict how a future movie will be rated.
 ### Dataset
 The datasets used in the project are hosted on the Kaggle database. They can be downloaded at the following link: <br>
 https://www.kaggle.com/stefanoleone992/rotten-tomatoes-movies-and-critic-reviews-dataset?select=rotten_tomatoes_movies.csv
@@ -38,6 +39,9 @@ The goal of this project is to understand what features will help us determine w
 - Briana Brown
 - Devin Hughes
 - Priscilla Van Dyke
+
+### Communication Protocols
+Our team plans to communicate primarily through a Slack channel for team members only and direct messages as needed. In case of an emergency, a message should be sent through Slack since we all agreed we would see that sooner than an email. 
 
 ## Tools and Techniques
 
