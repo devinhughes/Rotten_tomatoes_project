@@ -56,3 +56,30 @@ We plan to build our dashboard using Flask as well as D3.js to add interactive e
 
 ## Challenges
 The dataset shows some challenges that might become present in our project. The dataset will require efficient preprocessing to be able to use the dataset optimally. We also face the challenge of knowing if we have enough features to accurately fit our model to be able to predict our target. This might require an additional dataset to merge with our current dataset. 
+
+## Machine Learning Model
+
+### Preprocessing
+- Since almost half of the critics_consensus column was missing values, we decided to drop that column as it was determined not to be beneficial.
+- We decided to remove the remaining rows of data with null values, since it was a small percentage of the data, and we would still have plenty of information to work with.
+- For our target column, tomatometer_status, we replaced "Certified-Fresh" with "Fresh" so we would have a binary classification problem.
+- The content_rating column had only 6 unique categorical values, so we were able to encode it.
+- The movie_info text column was cleaned by transforming to lowercase, removing punctuation, word tokenization, removing stopwords, removing numbers, and stemming.
+
+### Feature Selection and Feature Engineering
+There were several columns that we knew we were not going to use in our model for various reasons.
+- The rotten_tomatoes_link column is for identification only so is not beneficial.
+- Since we are trying to predict tomatometer_status before a movie is reviewed, we could not use any rating columns in our model. These include tomatometer_rating, tomatometer_count, audience_status, audience_rating, audience_count, tomatometer_top_critics_count, tomatometer_fresh_critics_count, and tomatometer_rotten_critics_count.
+
+Most of the remaining columns are object/string data type and have way too many unique values for a traditional binning process to later encode, so we had to think of other ways to engineer features.
+- The genres column is a comma separated string of all the relevant genres for each movie. We created a column for each unique genre and for each movie/row listed a 1 if it included that genre and 0 otherwise. We also added a column for the total number of genres. 
+- For the movie_title and movie_info columns, we created new features based on text length analysis. This includes word count and character count for each.
+- The production company column is very inconsistent with company names and would have taken too much time to fully clean. Instead, we created columns for the largest grossing production companies (Walt Disney, Warner Bros., Sony Pictures, Universal, 20th Century Fox, and Paramount Pictures) and for each movie/row we listed a 1 if there was a partial string match for the company and a 0 otherwise. We also added a binary column if it was one of the top production companies or not.
+- For the directors column we created buckets for top, mid, low, and one based on the frequency of each unique name appearing in the dataset, with the idea that the more movies someone has directed, the better director they are, since the majority do not direct a second film.
+- For the actors column we used the same logic/process as directors by counting the number of people in each movie that fell into each actor frequency bucket (top and mid only since too many names for other buckets).
+
+### Training and Testing
+The data was split into training and testing sets using the scikit-learn function `train_test_split`. We used the default settings, so our training set is 75% of the data and the testing set is 25%.
+
+### Model Choice
+We chose a `RandomForestClassifier` model because ensemble learning can increase overall performance and we wanted to avoid overfitting. Random Forest algorithms are beneficial because they can handle outliers, nonlinear data, and large datasets. They can also rank features by importance which may be helpful for further feature selection. A limitation of Random Forests is that they might not identify all variability in a dataset since each weak learner is trained on a subset of the data.
