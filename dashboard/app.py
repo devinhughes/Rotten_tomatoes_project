@@ -1,5 +1,5 @@
 # Dependencies
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 # Set up Flask
 app = Flask(__name__)
@@ -10,9 +10,11 @@ def index():
     return render_template("index.html")
 
 # Results page route
-@app.route("/results")
+@app.route("/results", methods=['POST'])
 def results():
-    return render_template("results.html")
+    form_data = request.form
+    genres = request.form.getlist("genres")
+    return render_template("results.html", form_data=form_data, genres=genres)
 
 if __name__ == "__main__":
     app.run()
