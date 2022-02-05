@@ -83,3 +83,13 @@ The data was split into training and testing sets using the scikit-learn functio
 
 ### Model Choice
 We chose a `RandomForestClassifier` model because ensemble learning can increase overall performance and we wanted to avoid overfitting. Random Forest algorithms are beneficial because they can handle outliers, nonlinear data, and large datasets. They can also rank features by importance which may be helpful for further feature selection. A limitation of Random Forests is that they might not identify all variability in a dataset since each weak learner is trained on a subset of the data.
+
+## Dashboard Blueprint
+
+Storyboard: [link to Google Slides](https://docs.google.com/presentation/d/1rsbjh1_Hc_rgBTQOei5p1H97-38Gmu4U4I-_2f3GYs0/edit?usp=sharing)
+
+### Tools
+We are going to primarily use Flask to create our web application. An HTML form will allow users to input information that can be passed to the Flask server in order to run a Python script to predict results using our saved machine learning model. 
+
+### Interactive Elements
+The main interactive element is the Status Prediction Form. After the user enters information about the movie and clicks submit, they will be taken to a results page that shows the prediction of Fresh or Rotten.
