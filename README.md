@@ -2,7 +2,7 @@
 
 ## Outline
 
-## Presentation
+### Presentation
 Presentation: [link to presentation](https://docs.google.com/presentation/d/1909wBgXJnzSyIINJgRwpWJpaoihOYW93agS8IwppOFI/edit#slide=id.g1124feebbbe_2_33)
 
 ### Topic: Movies
@@ -92,7 +92,7 @@ We chose a `RandomForestClassifier` model because ensemble learning can increase
 
 ## Dashboard Blueprint
 
-Storyboard: [link to Google Slides]()
+Storyboard: [link to Google Slides](https://docs.google.com/presentation/d/1rsbjh1_Hc_rgBTQOei5p1H97-38Gmu4U4I-_2f3GYs0/edit?usp=sharing)
 
 ### Tools
 We are going to primarily use Flask to create our web application. An HTML form will allow users to input information that can be passed to the Flask server in order to run a Python script to predict results using our saved machine learning model. 
