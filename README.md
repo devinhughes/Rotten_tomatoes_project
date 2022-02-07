@@ -1,6 +1,10 @@
 # Final Project
 
 ## Outline
+
+## Presentation
+Presentation: [link to presentation](https://docs.google.com/presentation/d/1909wBgXJnzSyIINJgRwpWJpaoihOYW93agS8IwppOFI/edit#slide=id.g1124feebbbe_2_33)
+
 ### Topic: Movies
 Our group selected this topic because the movie industry has been severely impacted by COVID and we are interested in analyzing what makes movies successful or not to help future movie makers. We are going to look at data from the Rotten Tomatoes website to compare movies rated Fresh and Rotten in the hopes of being able to predict how a future movie will be rated.
 ### Dataset
@@ -88,7 +92,7 @@ We chose a `RandomForestClassifier` model because ensemble learning can increase
 
 ## Dashboard Blueprint
 
-Storyboard: [link to Google Slides](https://docs.google.com/presentation/d/1909wBgXJnzSyIINJgRwpWJpaoihOYW93agS8IwppOFI/edit#slide=id.g1124feebbbe_2_33)
+Storyboard: [link to Google Slides]()
 
 ### Tools
 We are going to primarily use Flask to create our web application. An HTML form will allow users to input information that can be passed to the Flask server in order to run a Python script to predict results using our saved machine learning model. 
