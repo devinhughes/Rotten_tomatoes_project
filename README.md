@@ -39,7 +39,7 @@ The goal of this project is to understand what features will help us determine w
 - Briana Brown
 - Devin Hughes
 - Priscilla Van Dyke
-
+ex
 ### Communication Protocols
 Our team plans to communicate primarily through a Slack channel for team members only and direct messages as needed. In case of an emergency, a message should be sent through Slack since we all agreed we would see that sooner than an email. 
 
@@ -48,7 +48,7 @@ Our team plans to communicate primarily through a Slack channel for team members
 ### Data Cleaning and Analysis
 We plan to primarily use Pandas to clean and analyze the data. For some of the columns, natural language processing will be necessary, so we intend to use NLTK.
 ### Database Storage
-Since our data is tabular, we plan to use a PostgreSQL database. In order to integrate with the other pieces of the project we intend to use SQLAlchemy to make the connection.
+Since our data is tabular, we used a PostgreSQL database. In order to integrate with the other pieces of the project we intend to use SQLAlchemy to make the connection.
 ### Machine Learning
 Our supervised machine learning model will use scikit-learn to create the classifier and split the data into training and testing sets. We intend to start with a Random Forest algorithm since it can handle outliers, nonlinear data, and large datasets. We hope to avoid overfitting and increase overall model performance with ensemble learning.
 ### Dashboard
@@ -56,6 +56,8 @@ We plan to build our dashboard using Flask as well as D3.js to add interactive e
 
 ## Challenges
 The dataset shows some challenges that might become present in our project. The dataset will require efficient preprocessing to be able to use the dataset optimally. We also face the challenge of knowing if we have enough features to accurately fit our model to be able to predict our target. This might require an additional dataset to merge with our current dataset. 
+## Exploratory Analysis
+To analyze our dataset we started off by addressing missing or duplicate columns. We dropped NaN rows and looked to see if there were any duplicate rows. We found the datatypes for each column to see if the was a need to correct or change any datasets. We ensured that columns that could be used for computation or that might need to be used for visualizations had the correct datatype. Of our 22 columns, we found critics consensus to be not of use for any analysis and dropped the column. Next, we analyzed different columns to see which we could use in our analysis. We found that the categorical data in tomatometer_status gave us the most to try to predict. We created bar charts of different features to see if there was a recognized pattern between features and tomatometer status. With the data we have in our dataset, we found that it would be best to try to use our information to try to predict tomatometer status.
 
 ## Machine Learning Model
 
@@ -86,7 +88,7 @@ We chose a `RandomForestClassifier` model because ensemble learning can increase
 
 ## Dashboard Blueprint
 
-Storyboard: [link to Google Slides](https://docs.google.com/presentation/d/1rsbjh1_Hc_rgBTQOei5p1H97-38Gmu4U4I-_2f3GYs0/edit?usp=sharing)
+Storyboard: [link to Google Slides](https://docs.google.com/presentation/d/1909wBgXJnzSyIINJgRwpWJpaoihOYW93agS8IwppOFI/edit#slide=id.g1124feebbbe_2_33)
 
 ### Tools
 We are going to primarily use Flask to create our web application. An HTML form will allow users to input information that can be passed to the Flask server in order to run a Python script to predict results using our saved machine learning model. 
