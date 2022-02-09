@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Analysis</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Add Jumbotron to Header -->
+        <div class="jumbotron text-center">
+            <h1>Movie Analysis: Fresh or Rotten?</h1>
+        </div>
+        <!-- Add section for Project Info -->
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    Add project summary/description here.
+                </p>
+            </div>
+        </div>
+        <!-- Add section for Visualizations -->
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h3>Image #1</h3>
+                <img src="" alt="Responsive image">
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>Image #2</h3>
+                <img src="" alt="Responsive image">
+            </div>
+            <div class="col-md-4 text-center">
+                <h3>Image #3</h3>
+                <img src="" alt="Responsive image">
+            </div>
+        </div>
+    </div>
+    <!-- Add section for Status Prediction Form -->
+    <div class="container bg-light">
+        <div class="row">
+            <div class="col-md-12">
+                <p><h2>Predict Movie Status</h2></p>
+                <form action="/results" method="POST">
+                    <!-- Title -->
+                    <label for="title">Title: </label>
+                    <input type="text" name="title" size="50" required=True/><br><br>
+                    <!-- Description -->
+                    <label for="description">Description: </label>
+                    <textarea name="description" rows="3" cols="50" required=True></textarea><br><br>
+                    <!-- Content Rating -->
+                    <label for="rating">Content Rating (select one): </label>
+                    <select name="rating">
+                        <option value="NR">Not Rated</option>
+                        <option value="G">G</option>
+                        <option value="PG">PG</option>
+                        <option value="PG-13">PG-13</option>
+                        <option value="R">R</option>
+                        <option value="NC17">NC-17</option>
+                    </select><br><br>
+                    <!-- Runtime -->
+                    <label for="runtime">Runtime (in minutes): </label>
+                    <input type="number" name="runtime" min="1" required=True/><br><br>
+                    <!-- Genres -->
+                    <label for="genres">Genres (select all that apply): </label><br>
+                    <input type="checkbox" id="Action & Adventure" name="genres" value="Action & Adventure">
+                    <label for="Action & Adventure"> Action & Adventure</label><br>
+                    <input type="checkbox" id="Animation" name="genres" value="Animation">
+                    <label for="Animation"> Animation</label><br>
+                    <input type="checkbox" id="Anime & Manga" name="genres" value="Anime & Manga">
+                    <label for="Anime & Manga"> Anime & Manga</label><br>
+                    <input type="checkbox" id="Art House & International" name="genres" value="Art House & International">
+                    <label for="Art House & International"> Art House & International</label><br>
+                    <input type="checkbox" id="Classics" name="genres" value="Classics">
+                    <label for="Classics"> Classics</label><br>
+                    <input type="checkbox" id="Comedy" name="genres" value="Comedy">
+                    <label for="Comedy"> Comedy</label><br>
+                    <input type="checkbox" id="Cult Movies" name="genres" value="Cult Movies">
+                    <label for="Cult Movies"> Cult Movies</label><br>
+                    <input type="checkbox" id="Documentary" name="genres" value="Documentary">
+                    <label for="Documentary"> Documentary</label><br>
+                    <input type="checkbox" id="Drama" name="genres" value="Drama">
+                    <label for="Drama"> Drama</label><br>
+                    <input type="checkbox" id="Faith & Spirituality" name="genres" value="Faith & Spirituality">
+                    <label for="Faith & Spirituality"> Faith & Spirituality</label><br>
+                    <input type="checkbox" id="Gay & Lesbian" name="genres" value="Gay & Lesbian">
+                    <label for="Gay & Lesbian"> Gay & Lesbian</label><br>
+                    <input type="checkbox" id="Horror" name="genres" value="Horror">
+                    <label for="Horror"> Horror</label><br>
+                    <input type="checkbox" id="Kids & Family" name="genres" value="Kids & Family">
+                    <label for="Kids & Family"> Kids & Family</label><br>
+                    <input type="checkbox" id="Musical & Performing Arts" name="genres" value="Musical & Performing Arts">
+                    <label for="Musical & Performing Arts"> Musical & Performing Arts</label><br>
+                    <input type="checkbox" id="Mystery & Suspense" name="genres" value="Mystery & Suspense">
+                    <label for="Mystery & Suspense"> Mystery & Suspense</label><br>
+                    <input type="checkbox" id="Romance" name="genres" value="Romance">
+                    <label for="Romance"> Romance</label><br>
+                    <input type="checkbox" id="Science Fiction & Fantasy" name="genres" value="Science Fiction & Fantasy">
+                    <label for="Science Fiction & Fantasy"> Science Fiction & Fantasy</label><br>
+                    <input type="checkbox" id="Special Interest" name="genres" value="Special Interest">
+                    <label for="Special Interest"> Special Interest</label><br>
+                    <input type="checkbox" id="Sports & Fitness" name="genres" value="Sports & Fitness">
+                    <label for="Sports & Fitness"> Sports & Fitness</label><br>
+                    <input type="checkbox" id="Television" name="genres" value="Television">
+                    <label for="Television"> Television</label><br>
+                    <input type="checkbox" id="Western" name="genres" value="Western">
+                    <label for="Western"> Western</label><br><br>
+                    <!-- Submit button -->
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>    
+</body>
+</html>
