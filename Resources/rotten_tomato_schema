@@ -10,6 +10,10 @@ CREATE TABLE movie_info (
  actors  TEXT NOT NULL,
  runtime  FLOAT NOT NULL,
  production_company TEXT NOT NULL, 
+ release_year INTEGER NOT NULL, 
+ streaming_release_year INTEGER NOT NULL,
+ release_month INTEGER NOT NULL,
+ streaming_month INTEGER NOT NULL,
  PRIMARY KEY (rotten_tomatoes_link)
 );
 CREATE TABLE rating_info (
@@ -23,17 +27,13 @@ audience_count   FLOAT NOT NULL,
 tomatometer_top_critics_count INTEGER NOT NULL,
 tomatometer_fresh_critics_count INTEGER NOT NULL, 
 tomatometer_rotten_critics_count  INTEGER NOT NULL, 
-release_year INTEGER NOT NULL, 
-streaming_release_year INTEGER NOT NULL,
-release_month INTEGER NOT NULL,
-streaming_month INTEGER NOT NULL,
 PRIMARY KEY (rotten_tomatoes_link)	
 );
 -- show imported data
 SELECT * FROM rating_info;
 SELECT * FROM movie_info;
 
--- Joining movie_info and rating_info
+-- Joining movie_info and rating_info needed for analysis
 
 SELECT movie_info.rotten_tomatoes_link,
  movie_info.movie_title,
@@ -45,12 +45,40 @@ SELECT movie_info.rotten_tomatoes_link,
  movie_info.actors,
  movie_info.runtime,
  movie_info.production_company,
- rating_info.tomatometer_status,
- rating_info.release_month,
- rating_info.streaming_month
+ movie_info.release_month,
+ movie_info.streaming_month,
+ rating_info.tomatometer_status
 INTO rotten_fresh_analysis
 FROM movie_info
 INNER JOIN rating_info
 ON movie_info.rotten_tomatoes_link = rating_info.rotten_tomatoes_link;
 SELECT * FROM rotten_fresh_analysis ;
+
+-- Join all data for into one dataset
+SELECT movie_info.rotten_tomatoes_link,
+ movie_info.movie_title,
+ movie_info.movie_info,
+ movie_info.content_rating,
+ movie_info.genres,
+ movie_info.directors,
+ movie_info.authors,
+ movie_info.actors,
+ movie_info.runtime,
+ movie_info.production_company,
+ movie_info.release_month,
+ movie_info.streaming_month,
+ rating_info.tomatometer_status,
+ rating_info.tomatometer_rating,
+ rating_info.tomatometer_count,
+ rating_info.audience_status,
+ rating_info.audience_rating,
+ rating_info.audience_count,
+ rating_info.tomatometer_top_critics_count,
+ rating_info.tomatometer_fresh_critics_count,
+ rating_info.tomatometer_rotten_critics_count 
+INTO full_table_rotten_analysis
+FROM movie_info
+INNER JOIN rating_info
+ON movie_info.rotten_tomatoes_link = rating_info.rotten_tomatoes_link;
+SELECT * FROM full_table_rotten_analysis;
 
