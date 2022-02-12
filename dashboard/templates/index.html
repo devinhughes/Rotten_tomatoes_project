@@ -7,41 +7,65 @@
     <title>Movie Analysis</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+        
+        /* Create two equal columns that floats next to each other */
+        .column {
+          float: left;
+          width: 50%;
+          padding: 10px;
+          height: 300px; 
+        }
+        
+        /* Clear floats after the columns */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        </style>
 </head>
-<body>
+<body style="background-color: rgb(228, 220, 220)">
     <div class="container">
         <!-- Add Jumbotron to Header -->
-        <div class="jumbotron text-center">
-            <h1>Movie Analysis: Fresh or Rotten?</h1>
+        <div class="jumbotron text-center" style="background-image:linear-gradient(to bottom, rgba(255, 255, 255, 0.315) 40%,rgba(255,255,255,0.9) 100%), url(static/images/popcorns.png);" >
+            <h1 style="font-familY:Fantasy ; font-size:xx-large; font:900">Movie Analysis: Fresh or Rotten?</h1>
         </div>
         <!-- Add section for Project Info -->
         <div class="row">
             <div class="col-md-12">
-                <p>
-                    Add project summary/description here.
+                <p style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ">
+                    In this project, we made it our goal to predict the outcome of movies. We targeted critic reviews through the movie
+                    database Rotten Tomatoes. The movie industry has been constantly revolving since its emergence. They are acessable on the big screen and from the touch of our hands but what does it take for them to be worthy of a good review?
+                    With the movie industry severely impacted by COVID and constantly adapting film makers and directors need to look at all angles to decide if a movie will be worth making. Will this movie be a success in the eyes of the critics? <br>
+                    <br>
+                    We have created a machine learning model that will use the features chosen with your input below to help predict your prospective movie will have a fresh or rotten review. Input your movie title and details and submit for your prediction! 
                 </p>
             </div>
         </div>
         <!-- Add section for Visualizations -->
         <div class="row">
             <div class="col-md-4 text-center">
-                <h3>Image #1</h3>
-                <img src="" alt="Responsive image">
+                <h3 style="font-familY:Fantasy;">Average Status Per Month</h3>
+                <img src="static/images/avg_stat_month.png" width=80% height=80% alt="Bar chart displaying average tomato status per month">
             </div>
             <div class="col-md-4 text-center">
-                <h3>Image #2</h3>
-                <img src="" alt="Responsive image">
+                <h3 style="font-familY:Fantasy; "> Audience and Critics Agree</h3>
+                <img src="static/images/crit_aud_per.png" width=80% height=80% alt="A pie chart comparing the percentage that audience and critic were agreed concerning ratings">
             </div>
             <div class="col-md-4 text-center">
-                <h3>Image #3</h3>
+                <h3 style="font-familY:Fantasy;">Image #3</h3>
                 <img src="" alt="Responsive image">
             </div>
         </div>
     </div>
     <!-- Add section for Status Prediction Form -->
     <div class="container bg-light">
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row" >
+            <div class="col-xl-12">
                 <p><h2>Predict Movie Status</h2></p>
                 <form action="/results" method="POST">
                     <!-- Title -->
@@ -63,7 +87,11 @@
                     <!-- Runtime -->
                     <label for="runtime">Runtime (in minutes): </label>
                     <input type="number" name="runtime" min="1" required=True/><br><br>
+                    
+                   
                     <!-- Genres -->
+                    <div class="row">
+                    <div class="column">
                     <label for="genres">Genres (select all that apply): </label><br>
                     <input type="checkbox" id="Action & Adventure" name="genres" value="Action & Adventure">
                     <label for="Action & Adventure"> Action & Adventure</label><br>
@@ -87,6 +115,9 @@
                     <label for="Faith & Spirituality"> Faith & Spirituality</label><br>
                     <input type="checkbox" id="Gay & Lesbian" name="genres" value="Gay & Lesbian">
                     <label for="Gay & Lesbian"> Gay & Lesbian</label><br>
+                    </div>
+                    <div class="column">  
+                    <br>             
                     <input type="checkbox" id="Horror" name="genres" value="Horror">
                     <label for="Horror"> Horror</label><br>
                     <input type="checkbox" id="Kids & Family" name="genres" value="Kids & Family">
@@ -107,7 +138,12 @@
                     <label for="Television"> Television</label><br>
                     <input type="checkbox" id="Western" name="genres" value="Western">
                     <label for="Western"> Western</label><br><br>
+                    </div> </div>
                     <!-- Submit button -->
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                     <input type="submit" value="Submit">
                 </form>
             </div>
