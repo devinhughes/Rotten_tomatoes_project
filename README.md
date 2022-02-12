@@ -43,9 +43,6 @@ The goal of this project is to understand what features will help us determine w
 - Briana Brown
 - Devin Hughes
 - Priscilla Van Dyke
-ex
-### Communication Protocols
-Our team plans to communicate primarily through a Slack channel for team members only and direct messages as needed. In case of an emergency, a message should be sent through Slack since we all agreed we would see that sooner than an email. 
 
 ## Tools and Techniques
 
@@ -89,6 +86,20 @@ The data was split into training and testing sets using the scikit-learn functio
 
 ### Model Choice
 We chose a `RandomForestClassifier` model because ensemble learning can increase overall performance and we wanted to avoid overfitting. Random Forest algorithms are beneficial because they can handle outliers, nonlinear data, and large datasets. They can also rank features by importance which may be helpful for further feature selection. A limitation of Random Forests is that they might not identify all variability in a dataset since each weak learner is trained on a subset of the data.
+
+### Changes in Model Choice
+While we did not end up changing models, we did test out several other algorithms to see if we could improve the accuracy.
+- After scaling the data with `StandardScaler` to make the models comparable, we trained and evaluated `RandomForestClassifier`, `LogisticRegression`, `SVC`, and `AdaBoostClassifier` models.
+- We tried a deep neural network with two hidden layers and minimal nodes to prevent overfitting.
+- We created a custom ensemble model that incorporates natural language processing. It uses the Naive Bayes classifier `MultinomialNB` on TF-IDF features created by `TfidfVectorizer` to find the statistical weight showing the importance of a word in the cleaned movie_info column. Then we used the trained model to predict the probability of a movie being rated Fresh and added this as a feature to our previous Random Forest model.
+- We tried dropping lower ranked features based on importance from prior Random Forest model, but it slightly decreased the accuracy. 
+
+All of these models ended up with comparable accuracy between 69-70%.
+
+### Model Training and Accuracy
+We decided to combine TF-IDF features with the original features in our Random Forest model. Through trial and error, we also tried to optimize the model with hyperparameter tuning. This resulted in our highest accuracy of 71%.
+
+At this point, we do not plan on any additional training since we have decided to revert back to a model with more simplified input features, as the accuracy was comparable at 69%. We are connecting our trained model directly to our dashboard to make a prediction based on the user's input, and this will simplify the input preprocessing in order to have something functional based on time constraints. 
 
 ## Dashboard Blueprint
 
