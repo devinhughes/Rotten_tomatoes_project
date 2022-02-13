@@ -1,4 +1,4 @@
-# Final Project
+# Rotten Tomatoes Analysis
 
 ## Outline
 
@@ -9,7 +9,7 @@ Presentation: [link to presentation](https://docs.google.com/presentation/d/1909
 Our group selected this topic because the movie industry has been severely impacted by COVID and we are interested in analyzing what makes movies successful or not to help future movie makers. We are going to look at data from the Rotten Tomatoes website to compare movies rated Fresh and Rotten in the hopes of being able to predict how a future movie will be rated.
 ### Dataset
 The datasets used in the project are hosted on the Kaggle database. They can be downloaded at the following link: <br>
-https://www.kaggle.com/stefanoleone992/rotten-tomatoes-movies-and-critic-reviews-dataset?select=rotten_tomatoes_movies.csv
+[Kaggle Dataset](https://www.kaggle.com/stefanoleone992/rotten-tomatoes-movies-and-critic-reviews-dataset?select=rotten_tomatoes_movies.csv)
 ### Goal
 The selected topic for our model is based on the dataset pertaining movie’s tomato status given by critics. This topic was selected so that we can understand what features are important to receiving a fresh or rotten status. In our source data we have information that includes 22 columns:
 <br>
@@ -89,21 +89,19 @@ We chose a `RandomForestClassifier` model because ensemble learning can increase
 
 ### Changes in Model Choice
 While we did not end up changing models, we did test out several other algorithms to see if we could improve the accuracy.
-- After scaling the data with `StandardScaler` to make the models comparable, we trained and evaluated `RandomForestClassifier`, `LogisticRegression`, `SVC`, and `AdaBoostClassifier` models.
-- We tried a deep neural network with two hidden layers and minimal nodes to prevent overfitting.
-- We created a custom ensemble model that incorporates natural language processing. It uses the Naive Bayes classifier `MultinomialNB` on TF-IDF features created by `TfidfVectorizer` to find the statistical weight showing the importance of a word in the cleaned movie_info column. Then we used the trained model to predict the probability of a movie being rated Fresh and added this as a feature to our previous Random Forest model.
-- We tried dropping lower ranked features based on importance from prior Random Forest model, but it slightly decreased the accuracy. 
+- After scaling the data with `StandardScaler` to make the models comparable, we trained and evaluated `RandomForestClassifier`, `LogisticRegression`, `SVC`, and `AdaBoostClassifier` [models](ML_models/ML_model-various.ipynb).
+- We tried a [deep neural network](ML_models/ML_model-various.ipynb) with two hidden layers and minimal nodes to prevent overfitting.
+- We created a [custom ensemble model](ML_models/ML_model-ensemble.ipynb) that incorporates natural language processing. It uses the Naive Bayes classifier `MultinomialNB` on TF-IDF features created by `TfidfVectorizer` to find the statistical weight showing the importance of a word in the cleaned movie_info column. Then we used the trained model to predict the probability of a movie being rated Fresh and added this as a feature to our previous Random Forest model.
+- We tried [dropping lower ranked features](ML_models/ML_model-drop_features.ipynb) based on importance from [prior Random Forest model](ML_models/ML_model.ipynb), but it slightly decreased the accuracy. 
 
 All of these models ended up with comparable accuracy between 69-70%.
 
 ### Model Training and Accuracy
-We decided to combine TF-IDF features with the original features in our Random Forest model. Through trial and error, we also tried to optimize the model with hyperparameter tuning. This resulted in our highest accuracy of 71%.
+We decided to [combine TF-IDF features](ML_models/ML_model-TFIDF.ipynb) with the original features in our Random Forest model. Through trial and error, we also tried to optimize the model with hyperparameter tuning. This resulted in our highest accuracy of 71%.
 
-At this point, we do not plan on any additional training since we have decided to revert back to a model with more simplified input features, as the accuracy was comparable at 69%. We are connecting our trained model directly to our dashboard to make a prediction based on the user's input, and this will simplify the input preprocessing in order to have something functional based on time constraints. 
+At this point, we do not plan on any additional training since we have decided to revert back to a [model with more simplified input features](dashboard/dashboard_ML_model.ipynb), as the accuracy was comparable at 69%. We are connecting our trained model directly to our dashboard to make a prediction based on the user's input, and this will simplify the input preprocessing in order to have something functional based on time constraints. 
 
-## Dashboard Blueprint
-
-Storyboard: [link to Google Slides](https://docs.google.com/presentation/d/1rsbjh1_Hc_rgBTQOei5p1H97-38Gmu4U4I-_2f3GYs0/edit?usp=sharing)
+## Dashboard
 
 ### Tools
 We are going to primarily use Flask to create our web application. An HTML form will allow users to input information that can be passed to the Flask server in order to run a Python script to predict results using our saved machine learning model. 
