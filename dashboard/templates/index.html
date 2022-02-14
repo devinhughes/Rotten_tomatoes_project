@@ -11,37 +11,51 @@
 <body>
     <div class="container">
         <!-- Add Jumbotron to Header -->
-        <div class="jumbotron text-center">
-            <h1>Movie Analysis: Fresh or Rotten?</h1>
+        <div class="jumbotron jumbotron-index text-center">
+            <h1 class="title">Movie Analysis: Fresh or Rotten?</h1>
         </div>
         <!-- Add section for Project Info -->
         <div class="row">
             <div class="col-md-12">
                 <p>
-                    Add project summary/description here.
+                    Is it possible to consistently predict the opinions of movie critics based on information about a movie? In this project, we made it our goal to predict the Rotten Tomatoes status of a movie and whether it will be rated Fresh or Rotten.
+                    <br><br>
+                    The movie industry has been constantly evolving since its emergence. Movies are accessible on the big screen and from the touch of our hands, but what does it take for them to be worthy of a good review?
+                    <br><br>
+                    With the movie industry severely impacted by COVID and constantly adapting, film makers and directors need to look at all angles to decide if a movie will be worth making. Will this movie be a success in the eyes of the critics?
+                    Movie theater owners are also trying to make decisions about which movies to show in their theater, as better rated films could attract a larger audience.<br><br>                  
                 </p>
             </div>
         </div>
         <!-- Add section for Visualizations -->
         <div class="row">
             <div class="col-md-4 text-center">
-                <h3>Image #1</h3>
-                <img src="" alt="Responsive image">
+                <h3 class="title">Average Status Per Month</h3>
+                <img src="static/images/tomato_bar_chart.png" width=80% height=80% alt="Bar chart displaying average tomato status per month">
             </div>
             <div class="col-md-4 text-center">
-                <h3>Image #2</h3>
-                <img src="" alt="Responsive image">
+                <h3 class="title"> Audience and Critics Agree</h3>
+                <img src="static/images/pie_chart.png" width=80% height=80% alt="A pie chart comparing the percentage that audience and critic were agreed concerning ratings">
             </div>
             <div class="col-md-4 text-center">
-                <h3>Image #3</h3>
-                <img src="" alt="Responsive image">
+                <h3 class="title"> Score by Decade </h3>
+                <img src="static/images/rating_by_year.png" width=80% height=80% alt="Line chart displaying average score over each decade">
+            </div>
+        </div>
+        <!-- Add section for ML model description -->
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    <br><br>We have created a machine learning model that will use the information you enter below to help predict whether your prospective movie will be rated Fresh or Rotten.
+                    Once you input your movie title and details, simply click the Submit button to receive your prediction result!<br><br>
+                </p>
             </div>
         </div>
     </div>
     <!-- Add section for Status Prediction Form -->
     <div class="container bg-light">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-xl-12">
                 <p><h2>Predict Movie Status</h2></p>
                 <form action="/results" method="POST">
                     <!-- Title -->
@@ -49,7 +63,7 @@
                     <input type="text" name="title" size="50" required=True/><br><br>
                     <!-- Description -->
                     <label for="description">Description: </label>
-                    <textarea name="description" rows="3" cols="50" required=True></textarea><br><br>
+                    <textarea name="description" rows="3" cols="100" required=True></textarea><br><br>
                     <!-- Content Rating -->
                     <label for="rating">Content Rating (select one): </label>
                     <select name="rating">
@@ -65,48 +79,56 @@
                     <input type="number" name="runtime" min="1" required=True/><br><br>
                     <!-- Genres -->
                     <label for="genres">Genres (select all that apply): </label><br>
-                    <input type="checkbox" id="Action & Adventure" name="genres" value="Action & Adventure">
-                    <label for="Action & Adventure"> Action & Adventure</label><br>
-                    <input type="checkbox" id="Animation" name="genres" value="Animation">
-                    <label for="Animation"> Animation</label><br>
-                    <input type="checkbox" id="Anime & Manga" name="genres" value="Anime & Manga">
-                    <label for="Anime & Manga"> Anime & Manga</label><br>
-                    <input type="checkbox" id="Art House & International" name="genres" value="Art House & International">
-                    <label for="Art House & International"> Art House & International</label><br>
-                    <input type="checkbox" id="Classics" name="genres" value="Classics">
-                    <label for="Classics"> Classics</label><br>
-                    <input type="checkbox" id="Comedy" name="genres" value="Comedy">
-                    <label for="Comedy"> Comedy</label><br>
-                    <input type="checkbox" id="Cult Movies" name="genres" value="Cult Movies">
-                    <label for="Cult Movies"> Cult Movies</label><br>
-                    <input type="checkbox" id="Documentary" name="genres" value="Documentary">
-                    <label for="Documentary"> Documentary</label><br>
-                    <input type="checkbox" id="Drama" name="genres" value="Drama">
-                    <label for="Drama"> Drama</label><br>
-                    <input type="checkbox" id="Faith & Spirituality" name="genres" value="Faith & Spirituality">
-                    <label for="Faith & Spirituality"> Faith & Spirituality</label><br>
-                    <input type="checkbox" id="Gay & Lesbian" name="genres" value="Gay & Lesbian">
-                    <label for="Gay & Lesbian"> Gay & Lesbian</label><br>
-                    <input type="checkbox" id="Horror" name="genres" value="Horror">
-                    <label for="Horror"> Horror</label><br>
-                    <input type="checkbox" id="Kids & Family" name="genres" value="Kids & Family">
-                    <label for="Kids & Family"> Kids & Family</label><br>
-                    <input type="checkbox" id="Musical & Performing Arts" name="genres" value="Musical & Performing Arts">
-                    <label for="Musical & Performing Arts"> Musical & Performing Arts</label><br>
-                    <input type="checkbox" id="Mystery & Suspense" name="genres" value="Mystery & Suspense">
-                    <label for="Mystery & Suspense"> Mystery & Suspense</label><br>
-                    <input type="checkbox" id="Romance" name="genres" value="Romance">
-                    <label for="Romance"> Romance</label><br>
-                    <input type="checkbox" id="Science Fiction & Fantasy" name="genres" value="Science Fiction & Fantasy">
-                    <label for="Science Fiction & Fantasy"> Science Fiction & Fantasy</label><br>
-                    <input type="checkbox" id="Special Interest" name="genres" value="Special Interest">
-                    <label for="Special Interest"> Special Interest</label><br>
-                    <input type="checkbox" id="Sports & Fitness" name="genres" value="Sports & Fitness">
-                    <label for="Sports & Fitness"> Sports & Fitness</label><br>
-                    <input type="checkbox" id="Television" name="genres" value="Television">
-                    <label for="Television"> Television</label><br>
-                    <input type="checkbox" id="Western" name="genres" value="Western">
-                    <label for="Western"> Western</label><br><br>
+                    <div class="row">
+                        <div class="column">
+                            <input type="checkbox" id="Action & Adventure" name="genres" value="Action & Adventure">
+                            <label for="Action & Adventure"> Action & Adventure</label><br>
+                            <input type="checkbox" id="Animation" name="genres" value="Animation">
+                            <label for="Animation"> Animation</label><br>
+                            <input type="checkbox" id="Anime & Manga" name="genres" value="Anime & Manga">
+                            <label for="Anime & Manga"> Anime & Manga</label><br>
+                            <input type="checkbox" id="Art House & International" name="genres" value="Art House & International">
+                            <label for="Art House & International"> Art House & International</label><br>
+                            <input type="checkbox" id="Classics" name="genres" value="Classics">
+                            <label for="Classics"> Classics</label><br>
+                            <input type="checkbox" id="Comedy" name="genres" value="Comedy">
+                            <label for="Comedy"> Comedy</label><br>
+                            <input type="checkbox" id="Cult Movies" name="genres" value="Cult Movies">
+                            <label for="Cult Movies"> Cult Movies</label><br>
+                        </div>
+                        <div class="column">
+                            <input type="checkbox" id="Documentary" name="genres" value="Documentary">
+                            <label for="Documentary"> Documentary</label><br>
+                            <input type="checkbox" id="Drama" name="genres" value="Drama">
+                            <label for="Drama"> Drama</label><br>
+                            <input type="checkbox" id="Faith & Spirituality" name="genres" value="Faith & Spirituality">
+                            <label for="Faith & Spirituality"> Faith & Spirituality</label><br>
+                            <input type="checkbox" id="Gay & Lesbian" name="genres" value="Gay & Lesbian">
+                            <label for="Gay & Lesbian"> Gay & Lesbian</label><br>        
+                            <input type="checkbox" id="Horror" name="genres" value="Horror">
+                            <label for="Horror"> Horror</label><br>
+                            <input type="checkbox" id="Kids & Family" name="genres" value="Kids & Family">
+                            <label for="Kids & Family"> Kids & Family</label><br>
+                            <input type="checkbox" id="Musical & Performing Arts" name="genres" value="Musical & Performing Arts">
+                            <label for="Musical & Performing Arts"> Musical & Performing Arts</label><br>
+                        </div>
+                        <div class="column">
+                            <input type="checkbox" id="Mystery & Suspense" name="genres" value="Mystery & Suspense">
+                            <label for="Mystery & Suspense"> Mystery & Suspense</label><br>
+                            <input type="checkbox" id="Romance" name="genres" value="Romance">
+                            <label for="Romance"> Romance</label><br>
+                            <input type="checkbox" id="Science Fiction & Fantasy" name="genres" value="Science Fiction & Fantasy">
+                            <label for="Science Fiction & Fantasy"> Science Fiction & Fantasy</label><br>
+                            <input type="checkbox" id="Special Interest" name="genres" value="Special Interest">
+                            <label for="Special Interest"> Special Interest</label><br>
+                            <input type="checkbox" id="Sports & Fitness" name="genres" value="Sports & Fitness">
+                            <label for="Sports & Fitness"> Sports & Fitness</label><br>
+                            <input type="checkbox" id="Television" name="genres" value="Television">
+                            <label for="Television"> Television</label><br>
+                            <input type="checkbox" id="Western" name="genres" value="Western">
+                            <label for="Western"> Western</label><br>
+                        </div>
+                    </div>
                     <!-- Submit button -->
                     <input type="submit" value="Submit">
                 </form>

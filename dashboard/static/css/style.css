@@ -5,3 +5,31 @@
 #Rotten {
     color:limegreen
 }
+
+body {
+    background-color: linen;
+    padding-bottom: 50px;
+}
+
+p {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.jumbotron-index {
+    background-image:linear-gradient(to bottom, rgba(255, 255, 255, 0.315) 40%,rgba(255,255,255,0.9) 100%), url(../images/popcorns.png);
+}
+
+.jumbotron-result {
+    background-color: black;
+}
+
+.title {
+    font-familY:Fantasy;
+}
+
+/* Create three equal columns that float next to each other */
+.column {
+    float: left;
+    width: 33%;
+    padding: 10px;
+}
