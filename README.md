@@ -97,11 +97,15 @@ While we did not end up changing models, we did test out several other algorithm
 All of these models ended up with comparable accuracy between 69-70%.
 
 ### Model Training and Accuracy
-We decided to [combine TF-IDF features](ML_models/ML_model-TFIDF.ipynb) with the original features in our Random Forest model. Through trial and error, we also tried to optimize the model with hyperparameter tuning. This resulted in our highest accuracy of 71%.
+We decided to [combine TF-IDF features](ML_models/ML_model-TFIDF.ipynb) with the original features in our Random Forest model. Through trial and error, we also tried to optimize the model with hyperparameter tuning. This resulted in our highest accuracy of 71%. For both precision and recall the model has a higher score for Fresh movies compared to Rotten, as seen in the classification report below. In our case precision is more important since we want our prediction to be reliable and keep the false positives to a minimum, rather than try to identify all the Fresh movies. Of the movies predicted to be Fresh, 72% were actually Fresh and of the movies predicted to be Rotten, 69% were actually Rotten.
+
+![ML_model-TFIDF](dashboard/static/images/ML_model-TFIDF.png)
 
 At this point, we do not plan on any additional training since we have decided to revert back to a [model with more simplified input features](dashboard/dashboard_ML_model.ipynb), as the accuracy was comparable at 69%. We are connecting our trained model directly to our dashboard to make a prediction based on the user's input, and this will simplify the input preprocessing in order to have something functional based on time constraints. 
 
 ## Dashboard
+
+[Screenshots of Dashboard](https://docs.google.com/presentation/d/e/2PACX-1vTgbMD_PH96M-3lttK2T33gyr-5qoI0-PYp6mu8Muh5X9pfeFGh-acPQ96OsWj1GC9aw_gsPi5z3p4k/pub?start=true&loop=true&delayms=5000)
 
 ### Tools
 We are going to primarily use Flask to create our web application. An HTML form will allow users to input information that can be passed to the Flask server in order to run a Python script to predict results using our saved machine learning model. 
