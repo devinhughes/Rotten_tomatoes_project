@@ -13,8 +13,7 @@ The datasets used in the project are hosted on the Kaggle database. They can be 
 The selected topic for our model is based on the dataset pertaining movie’s tomato status given by critics. This topic was selected so that we can understand what features are important to receiving a fresh or rotten status. In our source data we have information that includes 22 columns:
 <br>
 
-
-| Columns|  |  |
+| | | |
 | :---:         |     :---:   |      :---: |
 | Movie Link   | Movie Title    | Movie Information   |
 | Critic Consensus    | Content Rating      | Genres      |
