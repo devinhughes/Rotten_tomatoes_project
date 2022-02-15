@@ -2,8 +2,7 @@
 
 ## Outline
 
-### Presentation
-Presentation: [link to presentation](https://docs.google.com/presentation/d/1909wBgXJnzSyIINJgRwpWJpaoihOYW93agS8IwppOFI/edit#slide=id.g1124feebbbe_2_33)
+### [Presentation Link](https://docs.google.com/presentation/d/1909wBgXJnzSyIINJgRwpWJpaoihOYW93agS8IwppOFI/edit#slide=id.g1124feebbbe_2_33)
 
 ### Topic: Movies
 Our group selected this topic because the movie industry has been severely impacted by COVID and we are interested in analyzing what makes movies successful or not to help future movie makers. We are going to look at data from the Rotten Tomatoes website to compare movies rated Fresh and Rotten in the hopes of being able to predict how a future movie will be rated.
@@ -13,29 +12,19 @@ The datasets used in the project are hosted on the Kaggle database. They can be 
 ### Goal
 The selected topic for our model is based on the dataset pertaining movie’s tomato status given by critics. This topic was selected so that we can understand what features are important to receiving a fresh or rotten status. In our source data we have information that includes 22 columns:
 <br>
-- movie link <br>
-- movie title <br>
-- movie info <br>
-- critic consensus <br>
-- content rating <br>
-- genres <br>
-- directors <br>
-- authors <br>
-- actors <br>
-- original release date <br>
-- streaming release date <br>
-- runtime <br>
-- production company  <br>
-- tomatometer status <br>
-- tomatometer ratings <br>
-- tomatometer count <br>
-- audience status <br>
-- audience rating <br>
-- audience count <br>
-- tomatometer top critic ratings <br>
-- tomatometer top fresh critic ratings <br>
-- tomatometer rotten critic ratings <br>
-<br>
+
+
+| Columns|  |  |
+| :---:         |     :---:   |      :---: |
+| Movie Link   | Movie Title    | Movie Information   |
+| Critic Consensus    | Content Rating      | Genres      |
+| Directors    | Authors      | Actors     |
+| Original Release Date    | Streaming Release Date     | Runtime    |
+| Production Comany    | Tomatometer Status     | Tomatometer Ratings     |
+| Tomatometer Count    | Audience Status      | Audience Rating   |
+| Audience Count    | Tomatometer Top Critic Ratings     | Tomatometer Top Fresh Critic Ratings     |
+| Top Rotten Critic Ratings  |        |       |
+
 The goal of this project is to understand what features will help us determine which movies will receive a tomato status of fresh or rotten. We will use tomato status as our target for our model. We hope to construct a model that will accurately predict tomato status for future movies. <br>
 
 ## Team Members
@@ -47,18 +36,28 @@ The goal of this project is to understand what features will help us determine w
 ## Tools and Techniques
 
 ### Data Cleaning and Analysis
-We plan to primarily use Pandas to clean and analyze the data. For some of the columns, natural language processing will be necessary, so we intend to use NLTK.
+We plan to primarily use Pandas to clean and analyze the data. For some of the columns, natural language processing will be necessary, so we intend to use NLTK. For our visualizations we used Matplotlib.
 ### Database Storage
 Since our data is tabular, we used a PostgreSQL database. In order to integrate with the other pieces of the project we intend to use SQLAlchemy to make the connection.
 ### Machine Learning
 Our supervised machine learning model will use scikit-learn to create the classifier and split the data into training and testing sets. We intend to start with a Random Forest algorithm since it can handle outliers, nonlinear data, and large datasets. We hope to avoid overfitting and increase overall model performance with ensemble learning.
 ### Dashboard
-We plan to build our dashboard using Flask as well as D3.js to add interactive elements.
+We plan to build our dashboard using Flask to add interactive elements.
 
 ## Challenges
-The dataset shows some challenges that might become present in our project. The dataset will require efficient preprocessing to be able to use the dataset optimally. We also face the challenge of knowing if we have enough features to accurately fit our model to be able to predict our target. This might require an additional dataset to merge with our current dataset. 
+We faced a few challenges when tackling this project. The dataset required efficient preprocessing to be able to use the dataset optimally. Some of the columns in our dataset needed to be separated into new columns and condensed to be used for our maching model The dataset also lacked some features that might have helped in predicting tomatometer status. Another challenge of our model was the ability to predict opinion. The features of our dataset could only predict so much and opinion is subject to change and be based on a variety of factors.
+
 ## Exploratory Analysis
-To analyze our dataset we started off by addressing missing or duplicate columns. We dropped NaN rows and looked to see if there were any duplicate rows. We found the datatypes for each column to see if the was a need to correct or change any datasets. We ensured that columns that could be used for computation or that might need to be used for visualizations had the correct datatype. Of our 22 columns, we found critics consensus to be not of use for any analysis and dropped the column. Next, we analyzed different columns to see which we could use in our analysis. We found that the categorical data in tomatometer_status gave us the most to try to predict. We created bar charts of different features to see if there was a recognized pattern between features and tomatometer status. With the data we have in our dataset, we found that it would be best to try to use our information to try to predict tomatometer status.
+To analyze our dataset we started off by addressing missing or duplicate columns. We dropped rows including NaN values and looked to see if there were any duplicate rows. We found the datatypes for each column to see if the was a need to correct or change any datasets. We ensured that columns that could be used for computation or that might need to be used for visualizations had the correct datatype. Of our 22 columns, we found critics consensus to be not of use for any analysis and dropped the column. Next, we analyzed different columns to see which we could use in our analysis. We found that the categorical data in tomatometer_status gave us the most to try to predict. We created bar charts of different features to see if there were any recognized patterns between features and tomatometer status. With the data we have in our dataset, we found that it would be best to try to use our information to try to predict tomatometer status. We looked at a few trends to see if there was any patterns in ratings through time. <br>
+<br>
+![Average Tomatometer Rating by Month](dashboard/static/images/tomato_bar_chart.png)
+<br>
+The bar above shows how movies far throughout the year. According to the graph created from the dataset, movie seem to have better ratings in the winter months. <br>
+![Average Tomatometer Rating by Year](dashboard/static/images/rating_by_year.png)
+The line graph above shows a decline in tomatostatus ratings as time has gone by. This may be due to several different factors. For each decade the number of movies increase with before the 50s having a total movie count of 577 while the latest decades in the 2000s each have over 4,000 movies rated. As time has gone on, movies have saturated the business. The constant making and remaking of movies may have lessened the quality of movies that are being released today. There also may have been increased standards on films. With less films in the past, they may have had lower standards as the movie business was first emerging and this might account for the higher ratings of movies in the past. <br>
+<br>
+![Audience and Critics Percentage Agree](dashboard/static/images/pie_chart.png)
+For our analysis we focused on critic reviews of films. We also acknowledged audience had separate opinions and wanted to see how these aligned with critics' opinions. The pie chart above shows the percentage of the movies that audience and critics held the same opinions. We felt that this percentage was high enough that the critic reviews would be enough for our current model as a target feature.
 
 ## Machine Learning Model
 
@@ -112,3 +111,6 @@ We are going to primarily use Flask to create our web application. An HTML form 
 
 ### Interactive Elements
 The main interactive element is the Status Prediction Form. After the user enters information about the movie and clicks submit, they will be taken to a results page that shows the prediction of Fresh or Rotten.
+
+## Conclusion
+We found that our model was able to accurately predict up to .71 accuracy. This shows that there is some level of predictibility in tomatometer status, however still much to be analyzed. If we were to continue our research in the future, we would use the second dataset including the critics written reviews and used natural language processing to incorporate this feature in our model. We also discussed including pulling another data set that might include budget or time spent making the film. Extra features like these might have given our model an advantage and may have increased model accuracy. We would also have included a dynamic dataset so that our model would remain current for future uses. With these improvements, this model could prove as a efficient algorithm to improve the movie makers ability to recieve a Fresh review.
